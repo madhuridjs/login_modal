@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import Modal from './components/modal';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [show, setShow] = useState(false);
+  const [user, setUser] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className= "user_login">
+        <input 
+          type= "text"
+          className= "username"
+          placeholder= "Enter UserName"
+          onChange= {event => setUser(event.target.value) }
+        />
+        <input 
+          type= "password"
+          className= "password"
+          placeholder= "Enter PassWord"
+        />
+        {}
+        <button className= "show-modal" onClick= {() => setShow(true)}>Login</button>
+        <Modal user= {user} onClose= {() => setShow(false)} show= {show} />
+      </div>
     </div>
+      
   );
 }
 
