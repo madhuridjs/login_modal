@@ -1,13 +1,10 @@
 import React from 'react';
 import './modal.css';
 
-
 const Modal = props => {
     if(!props.show){
         return null;
     }
-
-
     return(
         <div className= "modal-pop" onClick= {props.onClose}>
             <div className= "modal" onClick= {event => event.stopPropagation()}>
